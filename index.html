@@ -3,60 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nouh Elhouch | Digital Consulting Services</title>
+    <title>Nouh Elhouch | Digital Consulting & Asset Advisory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
-        header { background: #2c3e50; color: #fff; padding: 3rem 0; text-align: center; border-bottom: 4px solid #18bc9c; }
-        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
-        header p { margin: 10px 0 0; font-size: 1.2rem; font-weight: 300; }
-        .container { width: 85%; max-width: 1000px; margin: 2rem auto; }
-        .section { background: #fff; padding: 2.5rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        h2 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-top: 0; }
-        ul { list-style-type: none; padding: 0; }
-        ul li { padding: 10px 0; border-bottom: 1px solid #eee; position: relative; padding-left: 25px; }
-        ul li:before { content: "✓"; position: absolute; left: 0; color: #18bc9c; font-weight: bold; }
-        footer { text-align: center; padding: 2rem; background: #2c3e50; color: #fff; margin-top: 2rem; }
-        footer a { color: #18bc9c; text-decoration: none; margin: 0 10px; }
-        footer a:hover { text-decoration: underline; }
-        .contact-info p { margin: 5px 0; font-size: 1.1rem; }
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #0284c7;
+            --accent-hover: #0369a1;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-dark: #0f172a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body { 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            line-height: 1.7; 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+        }
+
+        header { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); 
+            color: #fff; 
+            padding: 5rem 2rem; 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(2, 132, 199, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        header h1 { font-size: 3rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 0.5rem; }
+        header p { font-size: 1.25rem; font-weight: 300; color: #94a3b8; max-width: 600px; margin: 0 auto; }
+
+        .container { width: 90%; max-width: 1140px; margin: 3rem auto; }
+        
+        .section { background: var(--card-bg); padding: 3rem; margin-bottom: 2.5rem; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; }
+        .section h2 { color: var(--text-dark); font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        .section h2 i { color: var(--accent); }
+
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .expertise-card { padding: 1.5rem; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f7; }
+        .expertise-card h3 { font-size: 1.15rem; color: var(--text-dark); margin-bottom: 0.5rem; font-weight: 600; }
+
+        .search-container { position: relative; margin-bottom: 2rem; }
+        .search-container i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 1.2rem; }
+        .search-input { width: 100%; padding: 1rem 1rem 1rem 3rem; font-size: 1rem; border-radius: 10px; border: 1px solid #cbd5e1; background: #f8fafc; outline: none; transition: all 0.2s; }
+        .search-input:focus { border-color: var(--accent); background: #fff; box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1); }
+
+        .domain-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+        .domain-card { display: flex; flex-direction: column; justify-content: space-between; background: #fff; border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 12px; transition: all 0.2s; }
+        .domain-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border-color: #cbd5e1; }
+        .domain-info { margin-bottom: 1rem; }
+        .domain-name { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); word-break: break-all; }
+        
+        .inquiry-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #fff; padding: 0.75rem 1rem; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem; transition: background 0.2s; width: 100%; text-align: center; }
+        .inquiry-btn:hover { background: var(--accent-hover); color: #fff; }
+
+        .contact-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .social-link { display: inline-flex; align-items: center; gap: 12px; padding: 1rem; border-radius: 10px; text-decoration: none; font-weight: 600; color: #fff; transition: opacity 0.2s; }
+        .social-link:hover { opacity: 0.9; color: #fff; }
+        .link-linkedin { background-color: #0077b5; }
+        .link-email { background-color: var(--primary); }
+
+        footer { text-align: center; padding: 3rem 2rem; background: var(--primary); color: #94a3b8; font-size: 0.95rem; }
+        footer a { color: #fff; text-decoration: none; margin: 0 12px; transition: color 0.2s; }
+        footer a:hover { color: var(--accent); }
+        footer p { margin-bottom: 1rem; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.25rem; }
+            .section { padding: 1.75rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Nouh Elhouch</h1>
-        <p>Professional Digital Consulting Services</p>
+        <p>Strategic Digital Consulting & Enterprise Asset Advisory</p>
     </header>
 
     <div class="container">
         <div class="section">
-            <h2>Our Consulting Expertise</h2>
-            <p>We provide high-end digital consulting tailored to modern businesses, focusing on logical architecture, system design, and digital asset optimization. Our services are designed to scale your digital footprint securely and efficiently.</p>
-            <ul>
-                <li><strong>Digital Transformation Strategy:</strong> Guiding businesses through technological adoption and operational upgrades.</li>
-                <li><strong>Technical Architecture Consulting:</strong> Evaluating and designing logical workflows and system integrations.</li>
-                <li><strong>AI & Automation Advisory:</strong> Consulting on the implementation of intelligent tools and automated workflows.</li>
-                <li><strong>Digital Asset Management:</strong> Strategic planning for digital portfolios and brand identity.</li>
-            </ul>
+            <h2><i class="fa-solid fa-briefcase"></i> Our Consulting Expertise</h2>
+            <p>Providing high-end technical and strategic consulting tailored to global digital expansion, platform modernization, and technical asset optimization.</p>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Digital Transformation</h3>
+                    <p>Enabling enterprises to implement seamless technical architecture and infrastructure scaling.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>System Architecture</h3>
+                    <p>Advising on robust integration layers, workflow logic, and data orchestration strategies.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Asset Optimization</h3>
+                    <p>Strategic structural guidance for corporate digital presence and digital portfolio positioning.</p>
+                </div>
+            </div>
         </div>
 
         <div class="section">
-            <h2>Contact Information</h2>
-            <div class="contact-info">
-                <p><strong>Email:</strong> contact@nouhelhouch.com</p>
-                <p><strong>Location:</strong> Meknes, Morocco</p>
+            <h2><i class="fa-solid fa-globe"></i> Premium Digital Assets Portfolio</h2>
+            <p style="margin-bottom: 1.5rem;">A pristine collection of high-value, brandable commercial digital assets curated for corporate acquisition.</p>
+            
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-bar" class="search-input" placeholder="Search premium domains...">
+            </div>
+
+            <div class="domain-grid" id="domain-grid-container">
+                </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fa-solid fa-paper-plane"></i> Contact & Connect</h2>
+            <p>For advisory inquiries or asset acquisition discussions, establish direct compliance communication below.</p>
+            <div class="contact-methods">
+                <a href="https://www.linkedin.com/in/nouh-e-1a8145208?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="social-link link-linkedin">
+                    <i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i> Executive LinkedIn Profile
+                </a>
+                <a href="mailto:contact@nouhelhouch.com" class="social-link link-email">
+                    <i class="fa-solid fa-envelope" style="font-size: 1.5rem;"></i> Secure Corporate Email
+                </a>
             </div>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Nouh Elhouch. All rights reserved.</p>
-        <p>
-            <a href="terms.html">Terms of Service</a> | 
-            <a href="privacy.html">Privacy Policy</a> | 
+        <div>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
             <a href="refund.html">Refund Policy</a>
-        </p>
+        </div>
     </footer>
+
+    <script>
+        // Array containing the full list of 56 domains
+        const domains = [
+            "skillnestly.com", "copyrift.com", "webuk.net", "wa-s.com", "ha-pe.com", 
+            "ebsla.com", "smoothfitlab.com", "fitblendhub.com", "new-trader.com", "staroko.com", 
+            "silverlinellc.com", "hisky.ai", "exclusive-homes.com", "ousgroup.com", "zerolatency.io", 
+            "techcapital.io", "softans.com", "qualifiedsettlementfunds.com", "wia.company", "zou.company", 
+            "evm.company", "fma.company", "vincit.xyz", "opsus.xyz", "vvolv.com", 
+            "abctm.com", "taxqb.com", "zdoze.com", "dlvia.com", "pizoz.com", 
+            "lxuae.com", "intllawfirm.com", "stylehunts.com", "tarragons.com", "finws.com", 
+            "streamingpedia.com", "studioreservation.com", "forexcrossfire.com", "dreammotorcycle.com", "volumetricvr.com", 
+            "bankainetworks.com", "cloudflaws.com", "aboutmonaco.com", "zenprimerealty.com", "linearmodeling.com", 
+            "emissiontarget.com", "creditunionaudits.com", "diamondtutorial.com", "afterpoll.com", "exportorganic.com", 
+            "immobiliesuchen.com", "tutorsecrets.com", "aeronauticsdegree.com", "financesentiment.com", "prescriptionstudy.com", 
+            "pythoninterviews.com"
+        ];
+
+        const gridContainer = document.getElementById('domain-grid-container');
+        const searchBar = document.getElementById('search-bar');
+
+        // Function to render cards onto the display layout
+        function renderDomains(filterText = '') {
+            gridContainer.innerHTML = '';
+            
+            const filteredDomains = domains.filter(domain => 
+                domain.toLowerCase().includes(filterText.toLowerCase())
+            );
+
+            if(filteredDomains.length === 0) {
+                gridContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 2rem; color: #94a3b8;">No matching premium assets found.</p>';
+                return;
+            }
+
+            filteredDomains.forEach(domain => {
+                const card = document.createElement('div');
+                card.className = 'domain-card';
+                card.innerHTML = `
+                    <div class="domain-info">
+                        <span class="domain-name">${domain}</span>
+                    </div>
+                    <a href="mailto:contact@nouhelhouch.com?subject=Inquiry regarding asset acquisition: ${domain}" class="inquiry-btn">
+                        <i class="fa-solid fa-envelope-open-text"></i> Acquire / Inquire
+                    </a>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        // Live filtration listener
+        searchBar.addEventListener('input', (e) => {
+            renderDomains(e.target.value);
+        });
+
+        // Initialize view rendering
+        renderDomains();
+    </script>
 
 </body>
 </html>
