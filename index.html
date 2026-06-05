@@ -11,13 +11,18 @@
     
     <style>
         :root {
-            --primary-color: #1a4f48; /* Dark teal/green from the video */
+            --primary-color: #1a4f48;
             --primary-hover: #123b35;
             --text-dark: #111827;
             --text-muted: #4b5563;
             --bg-light: #f9fafb;
             --bg-white: #ffffff;
             --border-color: #e5e7eb;
+        }
+
+        /* إضافة خاصية التمرير السلس */
+        html {
+            scroll-behavior: smooth;
         }
 
         * {
@@ -412,11 +417,11 @@
 <body>
 
     <nav class="navbar">
-        <a href="#" class="logo">Nouh<span>Consulting</span></a>
+        <a href="#home" class="logo">Nouh<span>Consulting</span></a>
         <button class="nav-btn"><i class="fa-solid fa-bars"></i></button>
     </nav>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-content">
             <h1>Digital Consulting Solutions For Modern Businesses</h1>
             <p>We help businesses scale, optimize operations, and build powerful digital ecosystems that unlock new opportunities, improve efficiency, and drive sustainable growth.</p>
@@ -448,7 +453,7 @@
         </div>
     </section>
 
-    <section class="about">
+    <section id="about" class="about">
         <h2 class="section-title">About Us</h2>
         <div class="about-content">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Team Collaboration" class="about-img">
@@ -489,7 +494,7 @@
         </div>
     </section>
 
-    <section class="services">
+    <section id="services" class="services">
         <div class="services-header">
             <h2 class="section-title" style="margin-bottom: 0;">Our Services</h2>
             <a href="mailto:contact@nouhelhouch.com" class="btn" style="background-color: var(--bg-light); color: var(--text-dark); border: 1px solid var(--border-color);">VIEW ALL</a>
@@ -539,9 +544,9 @@
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
                     <li><a href="https://www.linkedin.com/in/nouh-e-1a8145208" target="_blank">LinkedIn Profile</a></li>
                 </ul>
             </div>
