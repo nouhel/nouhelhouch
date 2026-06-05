@@ -20,7 +20,6 @@
             --border-color: #e5e7eb;
         }
 
-        /* إضافة خاصية التمرير السلس */
         html {
             scroll-behavior: smooth;
         }
@@ -44,7 +43,7 @@
             color: inherit;
         }
 
-        /* Navbar */
+        /* Navbar & Header Links */
         .navbar {
             background-color: var(--bg-white);
             padding: 1.5rem 5%;
@@ -67,11 +66,33 @@
             color: var(--primary-color);
         }
 
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
         .nav-btn {
             background-color: transparent;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
+            display: none; /* Hidden on desktop */
+            color: var(--text-dark);
         }
 
         /* Hero Section */
@@ -398,7 +419,40 @@
             padding-top: 2rem;
         }
 
-        /* Desktop Adjustments */
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--bg-white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 5%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                border-bottom: 1px solid transparent;
+            }
+
+            .nav-links.active {
+                max-height: 300px;
+                padding: 1rem 5% 2rem;
+                border-bottom-color: var(--border-color);
+                box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            }
+
+            .nav-links li {
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+
         @media (min-width: 768px) {
             .hero {
                 grid-template-columns: 1fr 1fr;
@@ -418,7 +472,15 @@
 
     <nav class="navbar">
         <a href="#home" class="logo">Nouh<span>Consulting</span></a>
-        <button class="nav-btn"><i class="fa-solid fa-bars"></i></button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="https://www.linkedin.com/in/nouh-e-1a8145208" target="_blank">LinkedIn</a></li>
+        </ul>
+
+        <button class="nav-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
     </nav>
 
     <section id="home" class="hero">
@@ -578,5 +640,22 @@
         </div>
     </footer>
 
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const links = navLinks.querySelectorAll('a');
+
+        // Toggle menu on mobile
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
